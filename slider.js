@@ -1,4 +1,4 @@
-// ================ Code Library ================
+// This is the function that handles slider logic
 export default function Slider(selector = '#slider', config) {
     config = {
         width: config.width ? config.width : 800,
