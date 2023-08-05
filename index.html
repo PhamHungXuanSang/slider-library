@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body">
+<div id="slider">
+    <div class="wrapperSlide">
+        <div class="slide"><img alt="Ảnh-slider" src=""></img></div>
+        <div class="slide"><img alt="Ảnh-slider" src=""></img></div>
+    </div>
+    <div class="wrapperPagination"></div>
+    <div class="progress"></div>
+
+    <button class="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="next">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="mirror"></div>
+</div>
+</body>
+<script type="module">
+    import Slider from './slider.js';
+    new Slider('#slider', {
+        width: 800,
+        height: 400,
+        slidesPerView: 1, // from 1 to 5
+        spaceBetween: 20, // from 5 pixel
+        draggable: true,
+        autoplay: {
+            enable: true,
+            delay: 3, // from 1 second
+            progress: {
+                element: '.progress',
+                display: true,
+            },
+        },
+        zoomable: {
+            // Zoomable in-case slidesPerView=1 && autoplay.enable=false && draggable=false
+            element: '.mirror',
+            display: true,
+        },
+        wrapperSlide: '.wrapperSlide',
+        pagination: {
+            element: '.wrapperPagination',
+            visible: {
+                display: true,
+                img: true,
+            },
+            clickable: true,
+        },
+        navigation: {
+            left: '.prev',
+            right: '.next',
+        },
+    });
+</script>
+</html>
